@@ -75,11 +75,29 @@ async function deleteAirplane(req,res){
   }
 }
 
+async function updateAirplane(req,res){
+  try{
+       const airplane= await AirplaneService.updateAirplane(req.params.id,
+        {capacity: req.body.capacity});
+       SuccessResponse.message = "Successfully updated the Airplane.";
+       SuccessResponse.data = airplane;
+       return res
+         .status(StatusCodes.OK)
+         .json(SuccessResponse);
+  } catch (error){
+      ErrorResponse.message = "Something went wrong";
+      ErrorResponse.error = error;
+      return res
+          .status(error.statusCode)
+          .json(ErrorResponse);
+  }
+}
 
 
 module.exports = {
     createAirplane,
     getAirplanes,
     getAirplane,
-    deleteAirplane
+    deleteAirplane,
+    updateAirplane
 }

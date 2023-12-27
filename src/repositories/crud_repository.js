@@ -17,6 +17,7 @@ class CrudRepository {
                     id: data
                 }
             });
+            console.log(response);
             if(!response){
                 throw new AppError("Cannot find the resource",StatusCodes.NOT_FOUND);
             }
@@ -38,10 +39,13 @@ class CrudRepository {
 
     async update(id , data){
             const  response= await this.model.update(data,{
-                where:{
+                where: {
                     id: id
                 }
             });
+            if(!response[0]){
+                throw new AppError("Cannot find the resource",StatusCodes.NOT_FOUND);
+            }
             return response;
     }
 }
