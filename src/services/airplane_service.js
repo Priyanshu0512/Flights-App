@@ -51,7 +51,7 @@ async function deleteAirplane(id){
         if(error.statusCode == StatusCodes.NOT_FOUND){
             throw new AppError("Cannot Delete the Airplane as it is not present",error.statusCode);
         }
-        throw new AppError("Cannot fetch the Airplane data",StatusCodes.INTERNAL_SERVER_ERROR);
+        throw new AppError("Cannot delete the Airplane data",StatusCodes.INTERNAL_SERVER_ERROR);
     }
 }
 
