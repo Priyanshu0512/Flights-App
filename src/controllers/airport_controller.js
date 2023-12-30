@@ -83,6 +83,7 @@ async function updateAirport(req,res){
         if(req.body.name) updateObject.name = req.body.name;
         if(req.body.code) updateObject.code = req.body.code;
         if(req.body.cityId) updateObject.cityId = req.body.cityId;
+        if(req.body.address) updateObject.address = req.body.address;
         console.log(updateObject);
        const airport= await AirportService.updateAirport(req.params.id,
         updateObject);

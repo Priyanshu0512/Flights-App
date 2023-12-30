@@ -28,7 +28,7 @@ function validateCreateRequest(req,res,next){
 }
 
 function validateupdateRequest(req,res,next){
-    if(!req.body.name && ! req.body.code && !req.body.cityId){
+    if(!req.body.name && ! req.body.code && !req.body.cityId && ! req.body.address){
         ErrorResponse.message= "Something went wrong while updating the Airport.";
         ErrorResponse.error= new AppError(["Empty update Request"],StatusCodes.BAD_REQUEST);
         return res
