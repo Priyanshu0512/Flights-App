@@ -67,7 +67,7 @@ async function updateAirport(id,data){
             throw new AppError(explanation, StatusCodes.BAD_REQUEST);
         }
         else if(error.statusCode == StatusCodes.NOT_FOUND) {
-            throw new AppError('Cannot update the city as it is not present', error.statusCode);
+            throw new AppError('Cannot update the airport as it is not present', error.statusCode);
         }
         throw new AppError("Cannot fetch the Airport data",StatusCodes.INTERNAL_SERVER_ERROR);
     }
